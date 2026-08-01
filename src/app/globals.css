@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: hsl(120 15% 98%);
+  --foreground: hsl(150 30% 10%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(150 30% 10%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(150 30% 10%);
+  --primary: hsl(148 55% 27%); /* #1F6B45 Forest Green */
+  --primary-foreground: hsl(120 20% 98%);
+  --secondary: hsl(148 10% 90%);
+  --secondary-foreground: hsl(148 40% 15%);
+  --muted: hsl(148 10% 94%);
+  --muted-foreground: hsl(148 20% 40%);
+  --accent: hsl(142 70% 45%); /* Light/Vibrant Green Accent */
+  --accent-foreground: hsl(144 100% 96%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(148 15% 88%);
+  --input: hsl(148 15% 88%);
+  --ring: hsl(148 55% 27%);
+  --radius: 1.25rem;
 }
 
-@theme inline {
+.dark {
+  --background: hsl(150 30% 5%);
+  --foreground: hsl(120 15% 95%);
+  --card: hsl(150 25% 8%);
+  --card-foreground: hsl(120 15% 95%);
+  --popover: hsl(150 25% 7%);
+  --popover-foreground: hsl(120 15% 95%);
+  --primary: hsl(148 50% 38%); /* slightly brighter for legibility on dark */
+  --primary-foreground: hsl(120 20% 98%);
+  --secondary: hsl(150 15% 12%);
+  --secondary-foreground: hsl(120 15% 90%);
+  --muted: hsl(150 15% 12%);
+  --muted-foreground: hsl(150 10% 65%);
+  --accent: hsl(142 70% 45%);
+  --accent-foreground: hsl(144 100% 96%);
+  --destructive: hsl(0 62.8% 30.6%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(150 15% 15%);
+  --input: hsl(150 15% 15%);
+  --ring: hsl(148 50% 38%);
+}
+
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-sm: calc(var(--radius) - 8px);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Glassmorphism custom styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-panel {
+  background: rgba(18, 25, 22, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom transitions and premium shadows */
+.premium-shadow {
+  box-shadow: 0 8px 30px rgb(0, 0, 0, 0.02);
+}
+
+.dark .premium-shadow {
+  box-shadow: 0 8px 30px rgb(0, 0, 0, 0.15);
 }

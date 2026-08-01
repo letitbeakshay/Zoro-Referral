@@ -1,0 +1,115 @@
+// prisma/schema.prisma
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Member {
+  id               String       @id @default(uuid())
+  name             String
+  phone            String       @unique
+  email            String?
+  membershipId     String?      @map("membership_id")
+  referralCode     String       @unique @map("referral_code")
+  membershipStatus String       @default("active") @map("membership_status") // active, inactive
+  createdAt        DateTime     @default(now()) @map("created_at")
+  referrals        Referral[]   @relation("ReferrerToReferral")
+  rewards          Reward[]
+
+  @@map("members")
+}
+
+model Referral {
+  id             String       @id @default(uuid())
+  referrerId     String       @map("referrer_id")
+  referrer       Member       @relation("ReferrerToReferral", fields: [referrerId], references: [id], onDelete: Cascade)
+  referralCode   String       @map("referral_code")
+  customerName   String       @map("customer_name")
+  customerPhone  String       @unique @map("customer_phone")
+  customerEmail  String       @map("customer_email")
+  plan           String       // monthly, quarterly, half_yearly, yearly
+  status         String       @default("lead") // lead, visited, joined, paid_month_1, paid_month_2, paid_month_3, reward_eligible, reward_issued
+  joinedDate     DateTime?    @map("joined_date")
+  rewardStatus   String       @default("none") @map("reward_status") // none, eligible, issued
+  rewardType     String?      @map("reward_type") // extension, wallet
+  createdAt      DateTime     @default(now()) @map("created_at")
+  rewards        Reward[]
+
+  @@map("referrals")
+}
+
+model Reward {
+  id           String       @id @default(uuid())
+  memberId     String       @map("member_id")
+  member       Member       @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  referralId   String       @map("referral_id")
+  referral     Referral     @relation(fields: [referralId], references: [id], onDelete: Cascade)
+  rewardType   String       @map("reward_type") // extension, wallet
+  rewardValue  Decimal      @map("reward_value")
+  issuedDate   DateTime     @default(now()) @map("issued_date")
+  issuedBy     String       @map("issued_by") // admin email or ID
+  status       String       @default("issued")
+  createdAt    DateTime     @default(now()) @map("created_at")
+
+  @@map("rewards")
+}
+
+model Settings {
+  id                    String   @id @default("default")
+  gymName               String   @default("Zoro Gym") @map("gym_name")
+  gymLogo               String?  @map("gym_logo")
+  phone                 String   @default("+919999999999")
+  email                 String   @default("contact@zorogym.com")
+  address               String   @default("123 Gym Street, Fitness City")
+  socialLinks           Json     @default("{\"instagram\": \"\", \"facebook\": \"\"}") @map("social_links")
+  
+  // Standee Settings
+  standeeHeadline       String   @default("Bring a Friend.") @map("standee_headline")
+  standeeOffer          String   @default("Both of You Save ₹500.") @map("standee_offer")
+  standeeDiscountAmount Decimal  @default(500.00) @map("standee_discount_amount")
+  standeeTerms          String   @default("Valid on quarterly and annual memberships.") @map("standee_terms")
+  standeeWhatsappNumber String   @default("+919999999999") @map("standee_whatsapp_number")
+  primaryColor          String   @default("#1F6B45") @map("primary_color")
+  landingImage          String?  @map("landing_image")
+  
+  // Coupon / Referral Settings
+  couponPrefix          String   @default("ZR") @map("coupon_prefix")
+  couponNumberLength    Int      @default(4) @map("coupon_number_length")
+  couponAutoGeneration  Boolean  @default(true) @map("coupon_auto_generation")
+  couponExpiryDays      Int      @default(30) @map("coupon_expiry_days")
+  couponMaxReferrals    Int      @default(10) @map("coupon_max_referrals")
+  couponRewardAmount    Decimal  @default(500.00) @map("coupon_reward_amount")
+  couponDiscountAmount  Decimal  @default(500.00) @map("coupon_discount_amount")
+  couponMinPlan         String   @default("quarterly") @map("coupon_min_plan")
+  
+  referralTerms         String   @default("T&C Apply. Reward eligible after 3 paid months.") @map("referral_terms")
+  privacyPolicy         String   @default("Your data is safe with us.") @map("privacy_policy")
+
+  @@map("settings")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  type      String   // new_referral, new_member, reward_eligible, reward_issued
+  title     String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("notifications")
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  action      String
+  details     String
+  performedBy String   @map("performed_by")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("audit_logs")
+}
