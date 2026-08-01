@@ -114,42 +114,42 @@ export default function AdminDashboardPage() {
       value: stats?.totalMembers || 0, 
       desc: "Unique registered accounts",
       icon: Users,
-      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-[#EAF8F2] dark:bg-emerald-950/40"
     },
     { 
       title: "Referral Leads", 
       value: stats?.referralLeads || 0, 
       desc: "Guest registrations in queue",
       icon: Ticket,
-      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-[#EAF8F2] dark:bg-emerald-950/40"
     },
     { 
       title: "Converted Members", 
       value: stats?.convertedMembers || 0, 
       desc: "Leads who joined the gym",
       icon: UserCheck,
-      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-[#EAF8F2] dark:bg-emerald-950/40"
     },
     { 
       title: "Conversion Rate", 
       value: `${stats?.conversionRate || 0}%`, 
       desc: "Ratio of leads converting",
       icon: TrendingUp,
-      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-[#EAF8F2] dark:bg-emerald-950/40"
     },
     { 
       title: "Pending Rewards", 
       value: stats?.pendingRewards || 0, 
       desc: "Awaiting admin selection",
       icon: Clock,
-      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-[#EAF8F2] dark:bg-emerald-950/40"
     },
     { 
       title: "Rewards Given", 
       value: stats?.rewardsGiven || 0, 
       desc: "Extensions and credits issued",
       icon: Gift,
-      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-[#EAF8F2] dark:bg-emerald-950/40"
     },
   ]
 

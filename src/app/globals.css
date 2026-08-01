@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: hsl(120 15% 98%);
-  --foreground: hsl(150 30% 10%);
+  --background: hsl(210 20% 98%); /* #F8FAFC neutral slate-grey background */
+  --foreground: hsl(210 30% 10%);
   --card: hsl(0 0% 100%);
-  --card-foreground: hsl(150 30% 10%);
+  --card-foreground: hsl(210 30% 10%);
   --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(150 30% 10%);
+  --popover-foreground: hsl(210 30% 10%);
   --primary: hsl(148 55% 27%); /* #1F6B45 Forest Green */
   --primary-foreground: hsl(120 20% 98%);
-  --secondary: hsl(148 10% 90%);
-  --secondary-foreground: hsl(148 40% 15%);
-  --muted: hsl(148 10% 94%);
-  --muted-foreground: hsl(148 20% 40%);
+  --secondary: hsl(210 10% 90%);
+  --secondary-foreground: hsl(210 30% 15%);
+  --muted: hsl(210 10% 95%);
+  --muted-foreground: hsl(210 15% 40%);
   --accent: hsl(142 70% 45%); /* Light/Vibrant Green Accent */
   --accent-foreground: hsl(144 100% 96%);
   --destructive: hsl(0 84.2% 60.2%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(148 15% 88%);
-  --input: hsl(148 15% 88%);
+  --border: hsl(210 10% 90%);
+  --input: hsl(210 10% 90%);
   --ring: hsl(148 55% 27%);
   --radius: 1.25rem;
 }
