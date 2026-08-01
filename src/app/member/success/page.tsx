@@ -153,8 +153,8 @@ ${referralLink}`
                 <QrCode className="h-4 w-4" />
                 Referral QR Code
               </span>
-              <div className="bg-white p-4 rounded-2xl border border-border shadow-xs">
-                <canvas ref={canvasRef} className="mx-auto" />
+              <div className="bg-white p-4 rounded-2xl border border-border shadow-xs max-w-full overflow-hidden flex justify-center">
+                <canvas ref={canvasRef} className="max-w-full h-auto object-contain mx-auto" />
               </div>
               <p className="text-xs text-muted-foreground text-center max-w-xs">
                 Friends can scan this QR code directly with their phone camera to pre-fill your code on their screen.
