@@ -175,7 +175,7 @@ export default function AdminDashboardPage() {
               </Button>
             </Link>
             <Link href="/admin/referrals">
-              <Button variant="outline" className="border-white/35 hover:bg-white/10 text-white hover:border-white rounded-xl px-5 h-11 shrink-0">
+              <Button variant="outline" className="bg-transparent border-white/35 hover:bg-white/10 text-white hover:border-white rounded-xl px-5 h-11 shrink-0">
                 Process Leads
                 <ArrowRight className="h-4.5 w-4.5 ml-2" />
               </Button>
