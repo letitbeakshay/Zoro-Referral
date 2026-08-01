@@ -83,8 +83,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside className="hidden md:flex flex-col w-64 bg-card border-r border-border shrink-0 sticky top-0 h-screen">
         {/* Brand */}
         <div className="px-6 py-5 border-b border-border flex items-center gap-2">
-          <div className="p-2 rounded-xl bg-primary text-primary-foreground">
-            <Dumbbell className="h-5 w-5" />
+          <div className="h-9 w-9 rounded-xl overflow-hidden bg-primary relative flex items-center justify-center shrink-0">
+            <img src="/logo.png" alt="Zoro Gym Logo" className="object-cover h-full w-full" />
           </div>
           <span className="font-bold text-lg tracking-tight">Zoro Admin</span>
         </div>
@@ -140,8 +140,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Mobile Header */}
         <header className="flex md:hidden items-center justify-between px-6 py-4 bg-card border-b border-border sticky top-0 z-20">
           <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-primary text-primary-foreground">
-              <Dumbbell className="h-4 w-4" />
+            <div className="h-8 w-8 rounded-lg overflow-hidden bg-primary relative flex items-center justify-center shrink-0">
+              <img src="/logo.png" alt="Zoro Gym Logo" className="object-cover h-full w-full" />
             </div>
             <span className="font-bold text-base tracking-tight">Zoro Admin</span>
           </div>

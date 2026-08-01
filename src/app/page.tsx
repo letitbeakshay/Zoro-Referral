@@ -46,8 +46,8 @@ export default async function Home({ searchParams }: PageProps) {
       {/* Top Header */}
       <header className="px-6 py-5 flex items-center justify-between border-b border-border bg-card/60 backdrop-blur-md sticky top-0 z-10">
         <div className="flex items-center gap-2">
-          <div className="p-2 rounded-xl bg-primary text-primary-foreground">
-            <Dumbbell className="h-5 w-5" />
+          <div className="h-9 w-9 rounded-xl overflow-hidden bg-primary relative flex items-center justify-center shrink-0">
+            <img src="/logo.png" alt="Zoro Gym Logo" className="object-cover h-full w-full" />
           </div>
           <span className="font-bold text-lg tracking-tight">{settings.gymName}</span>
         </div>
