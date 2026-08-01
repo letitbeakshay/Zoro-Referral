@@ -566,8 +566,14 @@ export default function AdminSettingsPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col items-center justify-center py-10 space-y-6">
-                <div className="bg-white p-6 rounded-3xl border border-border shadow-xs">
-                  <canvas ref={canvasRef} />
+                <div className="bg-white p-6 rounded-3xl border border-border shadow-xs flex items-center justify-center">
+                  {qrUrl ? (
+                    <img src={qrUrl} alt="Standee QR Code" className="w-[250px] h-[250px] object-contain" />
+                  ) : (
+                    <div className="w-[250px] h-[250px] flex items-center justify-center">
+                      <Loader2 className="h-6 w-6 text-primary animate-spin" />
+                    </div>
+                  )}
                 </div>
                 
                 <div className="text-center space-y-1 max-w-sm">
@@ -621,6 +627,8 @@ export default function AdminSettingsPage() {
           </Button>
         </div>
       </form>
+      {/* Hidden canvas for background QR Code generation */}
+      <canvas ref={canvasRef} style={{ display: 'none' }} />
     </div>
   )
 }
