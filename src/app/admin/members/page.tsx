@@ -296,12 +296,12 @@ export default function AdminMembersPage() {
             Register and manage active Zoro Gym members and track code usage.
           </p>
         </div>
-        <div className="flex gap-2">
-          <Button onClick={handleExportCSV} variant="outline" className="rounded-xl shrink-0">
+        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+          <Button onClick={handleExportCSV} variant="outline" className="rounded-xl shrink-0 w-full sm:w-auto">
             <FileSpreadsheet className="h-4.5 w-4.5 mr-2" />
             CSV Export
           </Button>
-          <Button onClick={() => { resetForm(); setIsCreateOpen(true) }} className="rounded-xl shrink-0">
+          <Button onClick={() => { resetForm(); setIsCreateOpen(true) }} className="rounded-xl shrink-0 w-full sm:w-auto">
             <Plus className="h-4.5 w-4.5 mr-2" />
             Add Member
           </Button>

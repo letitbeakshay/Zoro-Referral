@@ -167,15 +167,15 @@ export default function AdminDashboardPage() {
               Track gym registrations, evaluate referral program yields, and manage campaign settings.
             </p>
           </div>
-          <div className="flex gap-2">
-            <Link href="/admin/members">
-              <Button className="bg-white hover:bg-emerald-50 text-[#1F6B45] border-none rounded-xl font-bold px-5 h-11 shrink-0">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            <Link href="/admin/members" className="w-full sm:w-auto">
+              <Button className="bg-white hover:bg-emerald-50 text-[#1F6B45] border-none rounded-xl font-bold px-5 h-11 shrink-0 w-full">
                 <Plus className="h-4.5 w-4.5 mr-2" />
                 Add Gym Member
               </Button>
             </Link>
-            <Link href="/admin/referrals">
-              <Button variant="ghost" className="bg-transparent border border-white/35 hover:bg-white/10 text-white hover:text-white hover:border-white rounded-xl px-5 h-11 shrink-0">
+            <Link href="/admin/referrals" className="w-full sm:w-auto">
+              <Button variant="ghost" className="bg-transparent border border-white/35 hover:bg-white/10 text-white hover:text-white hover:border-white rounded-xl px-5 h-11 shrink-0 w-full">
                 Process Leads
                 <ArrowRight className="h-4.5 w-4.5 ml-2" />
               </Button>
@@ -185,7 +185,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* KPI Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {kpis.map((kpi) => {
           const Icon = kpi.icon
           return (

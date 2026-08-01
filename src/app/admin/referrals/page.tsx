@@ -295,8 +295,8 @@ export default function AdminReferralsPage() {
             Monitor your referral funnel, advance lead billing statuses, and issue member rewards.
           </p>
         </div>
-        <div>
-          <Button onClick={handleExportCSV} variant="outline" className="rounded-xl shrink-0">
+        <div className="w-full sm:w-auto">
+          <Button onClick={handleExportCSV} variant="outline" className="rounded-xl shrink-0 w-full sm:w-auto">
             <FileSpreadsheet className="h-4.5 w-4.5 mr-2" />
             CSV Export
           </Button>
