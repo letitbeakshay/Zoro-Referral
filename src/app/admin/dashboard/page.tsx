@@ -114,42 +114,42 @@ export default function AdminDashboardPage() {
       value: stats?.totalMembers || 0, 
       desc: "Unique registered accounts",
       icon: Users,
-      color: "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
     },
     { 
       title: "Referral Leads", 
       value: stats?.referralLeads || 0, 
       desc: "Guest registrations in queue",
       icon: Ticket,
-      color: "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
     },
     { 
       title: "Converted Members", 
       value: stats?.convertedMembers || 0, 
       desc: "Leads who joined the gym",
       icon: UserCheck,
-      color: "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
     },
     { 
       title: "Conversion Rate", 
       value: `${stats?.conversionRate || 0}%`, 
       desc: "Ratio of leads converting",
       icon: TrendingUp,
-      color: "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
     },
     { 
       title: "Pending Rewards", 
       value: stats?.pendingRewards || 0, 
       desc: "Awaiting admin selection",
       icon: Clock,
-      color: "text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
     },
     { 
       title: "Rewards Given", 
       value: stats?.rewardsGiven || 0, 
       desc: "Extensions and credits issued",
       icon: Gift,
-      color: "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
+      color: "text-[#1F6B45] dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40"
     },
   ]
 
@@ -175,7 +175,7 @@ export default function AdminDashboardPage() {
               </Button>
             </Link>
             <Link href="/admin/referrals">
-              <Button variant="outline" className="bg-transparent border-white/35 hover:bg-white/10 text-white hover:border-white rounded-xl px-5 h-11 shrink-0">
+              <Button variant="ghost" className="bg-transparent border border-white/35 hover:bg-white/10 text-white hover:text-white hover:border-white rounded-xl px-5 h-11 shrink-0">
                 Process Leads
                 <ArrowRight className="h-4.5 w-4.5 ml-2" />
               </Button>
